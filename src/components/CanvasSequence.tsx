@@ -193,7 +193,7 @@ export const CanvasSequence: React.FC<CanvasSequenceProps> = ({ preloadedImages 
               <span className="font-visueltpro text-[9px] uppercase tracking-widest text-ash-accent">
                 Scroll to begin
               </span>
-              <div className="w-[1px] h-10 bg-gradient-to-b from-cloud-whisper to-transparent animate-bounce" />
+              <div className="w-[1px] h-10 bg-gradient-to-b from-cloud-whisper to-transparent" />
             </div>
           </div>
         </div>
