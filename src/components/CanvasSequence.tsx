@@ -22,7 +22,7 @@ export const CanvasSequence: React.FC<CanvasSequenceProps> = ({ preloadedImages 
   
   const [activeChapter, setActiveChapter] = useState<StoryChapter | null>(null);
   const [showChapter, setShowChapter] = useState(false);
-  const [frameIndex, setFrameIndex] = useState(0);
+  const activeChapterIdRef = useRef<string | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -40,8 +40,10 @@ export const CanvasSequence: React.FC<CanvasSequenceProps> = ({ preloadedImages 
     canvas.width = renderWidth;
     canvas.height = renderHeight;
 
-    // Highly optimized drawing callback (Cover logic similar to object-fit: cover)
+    // Highly optimized drawing callback (caches last drawn frame index to prevent redundant clears/paints)
+    let lastDrawnFrame = -1;
     const drawFrame = (index: number) => {
+      if (index === lastDrawnFrame) return;
       const img = preloadedImages[index];
       if (!img) return;
 
@@ -52,6 +54,7 @@ export const CanvasSequence: React.FC<CanvasSequenceProps> = ({ preloadedImages 
       const y = (canvas.height - img.height * scale) / 2;
       
       ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+      lastDrawnFrame = index;
     };
 
     // Draw first frame immediately
@@ -60,39 +63,44 @@ export const CanvasSequence: React.FC<CanvasSequenceProps> = ({ preloadedImages 
     // Dynamic scroll timeline
     const scrollObj = { frame: 0 };
     
-    // Master timeline coordinating Hero fade-out and Canvas scroll sequence
+    // Master timeline coordinating Hero fade-out and Canvas scroll sequence (scrub: true for 1:1 input responsiveness)
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 0.5,
+        scrub: true,
         pin: false,
         onUpdate: (self) => {
           const currentFrame = Math.round(scrollObj.frame);
-          setFrameIndex(currentFrame);
 
           // Find if there is an active chapter at this frame index
           const chapter = storyChapters.find(
             (c) => currentFrame >= c.startFrame && currentFrame <= c.endFrame
           );
 
-          if (chapter) {
-            setActiveChapter(chapter);
-            setShowChapter(true);
-          } else {
-            setShowChapter(false);
+          const nextChapterId = chapter ? chapter.id : null;
+          
+          // CRITICAL OPTIMIZATION: Only update React state on actual chapter changes
+          if (nextChapterId !== activeChapterIdRef.current) {
+            activeChapterIdRef.current = nextChapterId;
+            if (chapter) {
+              setActiveChapter(chapter);
+              setShowChapter(true);
+            } else {
+              setActiveChapter(null);
+              setShowChapter(false);
+            }
           }
         }
       }
     });
 
-    // 1. Fade and translate the Hero text at the start of the scroll (progress: 0% to 15% of scroll depth)
+    // 1. Fade and translate the Hero text at the start of the scroll (highly performant transform + opacity)
     if (hero) {
       tl.to(hero, {
         opacity: 0,
         y: -60,
-        filter: 'blur(12px)',
         duration: 1,
         ease: 'power1.out',
       }, 0);
@@ -205,9 +213,9 @@ export const CanvasSequence: React.FC<CanvasSequenceProps> = ({ preloadedImages 
               {showChapter && activeChapter && (
                 <motion.div
                   key={activeChapter.id}
-                  initial={{ opacity: 0, y: 15, filter: 'blur(8px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  exit={{ opacity: 0, y: -15, filter: 'blur(8px)' }}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   className={`absolute pointer-events-auto ${getPositionStyles(activeChapter.position)}`}
                 >
