@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Colors */
+  --color-midnight-void: #000000;
+  --color-cloud-whisper: #ffffff;
+  --color-slate-dust: #f5f5f0;
+  --color-steel-gray: #202020;
+  --color-mist-gray: #c0c0c0;
+  --color-charcoal-tone: #333333;
+  --color-ash-accent: #999999;
+  --color-light-ash: #cccccc;
+  --color-cadet-gray: #b3b3b3;
+  --color-badge-overlay: #333333;
+  --color-action-violet: #7F00FF; /* Premium Action Violet highlight used sparingly */
+
+  /* Typography — Font Families (Mapped to user-requested PolySans & Plus Jakarta Sans) */
+  --font-visueltpro: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-bradford: 'PolySans', 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography — Scale */
+  --text-caption: 10px;
+  --leading-caption: 1.5;
+  --tracking-caption: 0.3px;
+  --text-heading: 18px;
+  --leading-heading: 1.2;
+  --text-heading-lg: 20px;
+  --leading-heading-lg: 1.2;
+  --text-display-sm: 22px;
+  --leading-display-sm: 1.2;
+  --text-display: 30px;
+  --leading-display: 1;
+  --text-display-lg: 32px;
+  --leading-display-lg: 1;
+  --tracking-display-lg: -0.8px;
+
+  /* Typography — Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  /* Spacing */
+  --spacing-unit: 4px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-96: 96px;
+
+  /* Layout */
+  --section-gap: 64px;
+  --card-padding: 0px;
+  --element-gap: 16px;
+
+  /* Border Radius */
+  --radius-lg: 10px;
+  --radius-full: 9999px;
+
+  /* Named Radii */
+  --radius-cards: 10px;
+  --radius-badges: 9999px;
+  --radius-buttons: 9999px;
+
+  /* Shadows */
+  --shadow-xl: rgba(0, 0, 0, 0.35) 0px 10px 30px 0px, rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset;
+  --shadow-lg: rgba(0, 0, 0, 0.15) 0px 4px 20px 0px;
+}
+
+@theme {
+  /* Make sure theme maps variables correctly for Tailwind utility generation */
+  --color-midnight-void: var(--color-midnight-void);
+  --color-cloud-whisper: var(--color-cloud-whisper);
+  --color-slate-dust: var(--color-slate-dust);
+  --color-steel-gray: var(--color-steel-gray);
+  --color-mist-gray: var(--color-mist-gray);
+  --color-charcoal-tone: var(--color-charcoal-tone);
+  --color-ash-accent: var(--color-ash-accent);
+  --color-light-ash: var(--color-light-ash);
+  --color-cadet-gray: var(--color-cadet-gray);
+  --color-badge-overlay: var(--color-badge-overlay);
+  --color-action-violet: var(--color-action-violet);
+
+  --font-visueltpro: var(--font-visueltpro);
+  --font-bradford: var(--font-bradford);
+
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
+  --radius-cards: var(--radius-cards);
+  --radius-badges: var(--radius-badges);
+  --radius-buttons: var(--radius-buttons);
+
+  --shadow-xl: var(--shadow-xl);
+  --shadow-lg: var(--shadow-lg);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-midnight-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-charcoal-tone);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ash-accent);
+}
+
+/* Lenis Smooth Scroll Configuration */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  background-color: var(--color-midnight-void);
+  color: var(--color-cloud-whisper);
+  font-family: var(--font-visueltpro);
+  overflow-x: hidden;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography helper classes corresponding to design tokens */
+.text-caption {
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-caption);
+}
+
+.text-heading {
+  font-size: var(--text-heading);
+  line-height: var(--leading-heading);
+}
+
+.text-heading-lg {
+  font-size: var(--text-heading-lg);
+  line-height: var(--leading-heading-lg);
+}
+
+.text-display-sm {
+  font-size: var(--text-display-sm);
+  line-height: var(--leading-display-sm);
+}
+
+.text-display {
+  font-size: var(--text-display);
+  line-height: var(--leading-display);
+}
+
+.text-display-lg {
+  font-size: var(--text-display-lg);
+  line-height: var(--leading-display-lg);
+  letter-spacing: var(--tracking-display-lg);
+}
+
+/* Wipe Page Transition Layer */
+.wipe-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-midnight-void);
+  z-index: 9999;
+  pointer-events: none;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
