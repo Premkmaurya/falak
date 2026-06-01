@@ -46,7 +46,7 @@ export const Header: React.FC = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-50 border-b border-[rgba(255,255,255,0.06)] bg-midnight-void/60 backdrop-blur-md transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           
           {/* Minimalist Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
@@ -57,15 +57,15 @@ export const Header: React.FC = () => {
           </Link>
 
           {/* Navigation Links — Desktop only */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-12">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
                 className={({ isActive }: { isActive: boolean }) => 
-                  `font-visueltpro text-[13px] tracking-widest uppercase transition-all duration-300 ${
+                  `font-visueltpro text-[12px] tracking-[0.2em] uppercase transition-all duration-500 ${
                     isActive 
-                      ? 'text-cloud-whisper font-medium relative after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[1px] after:bg-cloud-whisper' 
+                      ? 'text-cloud-whisper font-medium relative after:absolute after:bottom-[-8px] after:left-0 after:w-full after:h-[1px] after:bg-cloud-whisper' 
                       : 'text-ash-accent hover:text-cloud-whisper'
                   }`
                 }
@@ -78,7 +78,7 @@ export const Header: React.FC = () => {
           {/* Action and Menu Toggles */}
           <div className="flex items-center space-x-4">
             <Link to="/contact" className="inline-flex cursor-pointer focus:outline-none">
-              <span className="font-visueltpro text-caption text-cloud-whisper border border-[rgba(255,255,255,0.3)] hover:border-cloud-whisper px-4 py-2 rounded-full uppercase tracking-wider transition-all duration-300 bg-midnight-void/25 active:scale-95">
+              <span className="font-visueltpro text-[10px] text-cloud-whisper border border-[rgba(255,255,255,0.15)] hover:border-cloud-whisper px-5 py-2.5 rounded-full uppercase tracking-[0.15em] transition-all duration-500 bg-transparent hover:bg-cloud-whisper hover:text-midnight-void hover:shadow-lg active:scale-95">
                 Inquire
               </span>
             </Link>
@@ -86,10 +86,10 @@ export const Header: React.FC = () => {
             {/* Fully Functional Mobile Menu Button */}
             <button 
               onClick={() => setMenuOpen(true)} 
-              className="md:hidden cursor-pointer focus:outline-none"
+              className="md:hidden cursor-pointer focus:outline-none bg-transparent"
               aria-label="Open Menu"
             >
-              <span className="font-visueltpro text-caption text-cloud-whisper border border-[rgba(255,255,255,0.3)] hover:border-cloud-whisper px-4 py-2 rounded-full uppercase tracking-wider transition-all duration-300 bg-midnight-void/25 active:scale-95">
+              <span className="font-visueltpro text-[10px] text-cloud-whisper border border-[rgba(255,255,255,0.15)] hover:border-cloud-whisper px-5 py-2.5 rounded-full uppercase tracking-[0.15em] transition-all duration-500 bg-transparent hover:bg-cloud-whisper hover:text-midnight-void hover:shadow-lg active:scale-95">
                 Menu
               </span>
             </button>

@@ -23,6 +23,7 @@ export const CanvasSequence: React.FC<CanvasSequenceProps> = ({ preloadedImages 
   const [activeChapter, setActiveChapter] = useState<StoryChapter | null>(null);
   const [showChapter, setShowChapter] = useState(false);
   const activeChapterIdRef = useRef<string | null>(null);
+  const scrollTriggerRef = useRef<any>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -116,6 +117,8 @@ export const CanvasSequence: React.FC<CanvasSequenceProps> = ({ preloadedImages 
       }
     }, 0.5); // Staggered start to let Hero fade first
 
+    scrollTriggerRef.current = tl.scrollTrigger;
+
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
@@ -162,23 +165,32 @@ export const CanvasSequence: React.FC<CanvasSequenceProps> = ({ preloadedImages 
           className="absolute inset-0 w-full h-full flex items-center justify-center z-20 px-6 max-w-5xl mx-auto text-center"
         >
           <div>
-            <div className="my-4">
+            <div className="my-6">
               <Badge variant="lozenge">Sequel Interior Studio</Badge>
             </div>
 
-            <h1 className="font-bradford font-medium text-[42px] md:text-[84px] lg:text-[104px] leading-[1.0] text-cloud-whisper tracking-tighter mb-8 uppercase select-none">
+            <h1 className="font-bradford font-medium text-[36px] md:text-[72px] lg:text-[88px] leading-[1.1] text-cloud-whisper tracking-tighter mb-8 uppercase select-none">
               Spaces that<br />feel alive.
             </h1>
 
-            <p className="font-visueltpro text-light-ash text-[15px] md:text-[18px] max-w-xl mx-auto mb-10 leading-relaxed font-light">
+            <p className="font-visueltpro text-light-ash/85 text-[14px] md:text-[16px] max-w-md mx-auto mb-12 leading-relaxed font-light">
               A physical manifestation of restraint. We build editorial, architectural sanctuaries where silent details formulate an absolute expression.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <button 
                 onClick={() => {
+                  const trigger = scrollTriggerRef.current;
+                  let destination = window.innerHeight * 1.37; // Mathematically precise fallback
+                  if (trigger) {
+                    const start = trigger.start;
+                    const end = trigger.end;
+                    // Target t = 1.01 out of 5.5 total duration in the timeline (where Hero is 100% faded and Chapter 1 begins)
+                    destination = start + (1.01 / 5.5) * (end - start);
+                  }
+                  
                   window.scrollTo({
-                    top: window.innerHeight * 0.8,
+                    top: destination,
                     behavior: 'smooth'
                   });
                 }}

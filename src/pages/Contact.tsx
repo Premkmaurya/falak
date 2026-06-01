@@ -27,7 +27,7 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-midnight-void pt-32 pb-24 min-h-[90vh] flex items-center">
+    <div className="w-full bg-midnight-void pt-44 pb-36 min-h-[90vh] flex items-center">
       <div className="max-w-7xl mx-auto px-6 w-full">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
@@ -36,16 +36,16 @@ export const Contact: React.FC = () => {
           <div className="lg:col-span-5 flex flex-col justify-between h-full">
             <div>
               <Badge variant="subtle" className="mb-4">ENGAGE</Badge>
-              <h1 className="font-bradford font-medium text-[42px] md:text-[64px] lg:text-[76px] leading-[1.05] text-cloud-whisper tracking-tighter uppercase mb-8">
+              <h1 className="font-bradford font-medium text-[36px] md:text-[54px] lg:text-[64px] leading-[1.05] text-cloud-whisper tracking-tighter uppercase mb-8">
                 Cultivate<br />stillness.
               </h1>
-              <p className="font-visueltpro text-light-ash text-[15px] leading-relaxed max-w-sm mb-12">
+              <p className="font-visueltpro text-light-ash/85 text-[15px] leading-relaxed max-w-sm mb-12">
                 We partner with select individuals and organizations worldwide to develop premium sanctuaries. Contact our studios below or fill out the digital inquiry sheet.
               </p>
             </div>
 
             {/* Geographic Studios Coordinates */}
-            <div className="space-y-8 border-t border-[rgba(255,255,255,0.06)] pt-8 font-visueltpro text-[13px] text-light-ash">
+            <div className="space-y-8 border-t border-[rgba(255,255,255,0.06)] pt-12 font-visueltpro text-[13px] text-light-ash">
               
               <div className="grid grid-cols-2 gap-8">
                 <div>

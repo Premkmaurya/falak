@@ -90,22 +90,22 @@ export const Services: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-midnight-void pt-32 pb-24">
+    <div className="w-full bg-midnight-void pt-44 pb-36">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Practices Header */}
-        <div className="max-w-3xl mb-20">
+        <div className="max-w-3xl mb-24">
           <Badge variant="subtle" className="mb-4">PRACTICES</Badge>
-          <h1 className="font-bradford font-medium text-[42px] md:text-[72px] lg:text-[84px] leading-[1.05] text-cloud-whisper tracking-tighter uppercase mb-6">
+          <h1 className="font-bradford font-medium text-[36px] md:text-[64px] lg:text-[76px] leading-[1.05] text-cloud-whisper tracking-tighter uppercase mb-6">
             PRACTICES &<br />DISCIPLINARIES
           </h1>
-          <p className="font-visueltpro text-light-ash text-[16px] leading-relaxed max-w-xl">
+          <p className="font-visueltpro text-light-ash/85 text-[16px] leading-relaxed max-w-xl">
             We deliver complete interior design services across six major core pillars. Our processes follow a meticulous, non-compromising timeline that ensures absolute quality from blueprints to the final staging handoff.
           </p>
         </div>
 
         {/* 6 Elegant Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-start">
           {servicesList.map((service) => {
             const isOpen = activeId === service.id;
 

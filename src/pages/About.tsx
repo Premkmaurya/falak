@@ -5,22 +5,22 @@ import Card from '../components/Card';
 
 export const About: React.FC = () => {
   return (
-    <div className="w-full bg-midnight-void pt-32 pb-24">
+    <div className="w-full bg-midnight-void pt-44 pb-36">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Editorial Header */}
         <div className="max-w-3xl mb-24">
           <Badge variant="subtle" className="mb-4">PHILOSOPHY</Badge>
-          <h1 className="font-bradford font-medium text-[42px] md:text-[72px] lg:text-[84px] leading-[1.05] text-cloud-whisper tracking-tighter uppercase mb-6">
+          <h1 className="font-bradford font-medium text-[36px] md:text-[64px] lg:text-[76px] leading-[1.05] text-cloud-whisper tracking-tighter uppercase mb-6">
             SPACES OF<br />STILLNESS
           </h1>
-          <p className="font-visueltpro text-light-ash text-[16px] leading-relaxed max-w-xl">
+          <p className="font-visueltpro text-light-ash/85 text-[16px] leading-relaxed max-w-xl">
             Established in 2018, Sequel was born out of a desire to create silent architecture. We reject decorative visual noise, choosing instead to focus on raw spatial volumes, tactile honest materials, and precise geometric light.
           </p>
         </div>
 
         {/* Double-Height Visual Frame */}
-        <div className="w-full h-[60vh] md:h-[70vh] rounded-cards overflow-hidden mb-24 border border-[rgba(255,255,255,0.06)]">
+        <div className="w-full h-[60vh] md:h-[70vh] rounded-cards overflow-hidden mb-32 border border-[rgba(255,255,255,0.06)]">
           <motion.img 
             initial={{ scale: 1.05 }}
             animate={{ scale: 1.0 }}
@@ -32,7 +32,7 @@ export const About: React.FC = () => {
         </div>
 
         {/* Pillars Section — Comfort Spacing, Strong Typography */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-32 border-b border-[rgba(255,255,255,0.06)] pb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-24 mb-40 border-b border-[rgba(255,255,255,0.06)] pb-28">
           
           <div>
             <span className="font-bradford text-action-violet text-display-lg block mb-4">01 /</span>
@@ -68,9 +68,9 @@ export const About: React.FC = () => {
 
         {/* Team Leadership Grid */}
         <div>
-          <div className="mb-16">
+          <div className="mb-24">
             <Badge variant="subtle" className="mb-4">CREATIVE LEADERSHIP</Badge>
-            <h2 className="font-bradford font-medium text-display-lg md:text-[54px] text-cloud-whisper uppercase tracking-tight">
+            <h2 className="font-bradford font-medium text-[32px] md:text-[44px] lg:text-[48px] text-cloud-whisper uppercase tracking-tight">
               The Founders
             </h2>
           </div>
@@ -83,7 +83,7 @@ export const About: React.FC = () => {
                 <img 
                   src="/frames/watermark_removed_0d8bc9a5-3c22-4ce5-97ce-a9d9171353c4_011.png" 
                   alt="Kenji Sato"
-                  className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-75"
+                  className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-[1200ms] ease-[0.16,1,0.3,1]"
                 />
               </div>
               <div className="flex items-baseline justify-between mb-4">
@@ -105,7 +105,7 @@ export const About: React.FC = () => {
                 <img 
                   src="/frames/watermark_removed_0d8bc9a5-3c22-4ce5-97ce-a9d9171353c4_024.png" 
                   alt="Elena Vujović"
-                  className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-75"
+                  className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-[1200ms] ease-[0.16,1,0.3,1]"
                 />
               </div>
               <div className="flex items-baseline justify-between mb-4">

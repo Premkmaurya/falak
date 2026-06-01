@@ -14,22 +14,22 @@ export const Projects: React.FC = () => {
     : portfolioProjects.filter(p => p.category === filter);
 
   return (
-    <div className="w-full bg-midnight-void pt-32 pb-24">
+    <div className="w-full bg-midnight-void pt-44 pb-36">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Editorial Header */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-24">
           <Badge variant="subtle" className="mb-4">ARCHIVE</Badge>
-          <h1 className="font-bradford font-medium text-[42px] md:text-[72px] lg:text-[84px] leading-[1.05] text-cloud-whisper tracking-tighter uppercase mb-6">
+          <h1 className="font-bradford font-medium text-[36px] md:text-[64px] lg:text-[76px] leading-[1.05] text-cloud-whisper tracking-tighter uppercase mb-6">
             SPATIAL<br />WORKS
           </h1>
-          <p className="font-visueltpro text-light-ash text-[16px] leading-relaxed max-w-xl">
+          <p className="font-visueltpro text-light-ash/85 text-[16px] leading-relaxed max-w-xl">
             A comprehensive catalog of private residences, corporate sanctuaries, and custom furniture objects. Each project stands as a testament to absolute restraint, precise detail, and natural volumes.
           </p>
         </div>
 
         {/* Filter Badges Bar */}
-        <div className="flex flex-wrap items-center gap-3 mb-16 border-b border-[rgba(255,255,255,0.06)] pb-8">
+        <div className="flex flex-wrap items-center gap-3 mb-24 border-b border-[rgba(255,255,255,0.06)] pb-10">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -51,7 +51,7 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* Asymmetrical Visual Catalog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-16 gap-x-8 lg:gap-x-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-28 gap-x-8 lg:gap-x-12">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project: Project, idx: number) => {
               // Create asymmetrical visual rhythm by shifting columns based on index
@@ -64,9 +64,9 @@ export const Projects: React.FC = () => {
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, y: 30, filter: 'blur(4px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  exit={{ opacity: 0, scale: 0.95, filter: 'blur(8px)' }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   className={`${colSpan} ${mtOffset} flex flex-col justify-start`}
                 >
@@ -77,7 +77,7 @@ export const Projects: React.FC = () => {
                         <img 
                           src={project.image} 
                           alt={project.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[0.16,1,0.3,1] group-hover:scale-102"
                         />
                         <div className="absolute top-4 left-4">
                           <Badge variant="lozenge" className="bg-midnight-void/60 backdrop-blur-sm border border-[rgba(255,255,255,0.1)]">
@@ -93,7 +93,7 @@ export const Projects: React.FC = () => {
                           <span>{project.year}</span>
                         </div>
                         
-                        <h3 className="font-bradford font-medium text-display-sm text-cloud-whisper mb-3 uppercase tracking-tight group-hover:text-action-violet transition-colors duration-300">
+                        <h3 className="font-bradford font-medium text-display-sm text-cloud-whisper mb-3 uppercase tracking-tight group-hover:text-action-violet transition-colors duration-500">
                           {project.title}
                         </h3>
                         
