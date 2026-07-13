@@ -11,8 +11,10 @@ export const usePreloadImages = (urls: string[]) => {
 
   useEffect(() => {
     if (!urls || urls.length === 0) {
-      setLoaded(true);
-      return;
+      const timer = setTimeout(() => {
+        setLoaded(true);
+      }, 0);
+      return () => clearTimeout(timer);
     }
 
     let loadedCount = 0;

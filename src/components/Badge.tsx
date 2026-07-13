@@ -11,16 +11,16 @@ export const Badge: React.FC<BadgeProps> = ({
   children,
   className = '',
 }) => {
-  const baseStyle = "inline-flex items-center justify-center font-visueltpro font-normal text-caption uppercase tracking-wider rounded-badges transition-all duration-300";
+  const baseStyle = "inline-flex items-center justify-center font-visueltpro font-normal text-caption uppercase tracking-widest rounded-badges transition-all duration-300";
   
   let variantStyle = "";
   
   if (variant === 'lozenge') {
-    // Lozenge Badge: rgba(200, 200, 200, 0.1) background with #ffffff text
-    variantStyle = "bg-[rgba(200,200,200,0.1)] text-cloud-whisper px-4 py-2 border border-transparent hover:border-[rgba(255,255,255,0.05)] hover:bg-[rgba(200,200,200,0.15)]";
+    // Warm background, dark walnut text
+    variantStyle = "bg-[rgba(184,151,116,0.08)] text-dark-walnut px-4 py-2 border border-[rgba(184,151,116,0.15)]";
   } else if (variant === 'subtle') {
-    // Subtle Pill Badge: transparent background with #ffffff text
-    variantStyle = "bg-transparent text-cloud-whisper border border-[rgba(255,255,255,0.15)] px-3 py-1 hover:border-cloud-whisper";
+    // Transparent background, border and text secondary, subtle hover
+    variantStyle = "bg-transparent text-text-secondary border border-border-medium px-3 py-1 hover:border-text-primary hover:text-text-primary";
   }
 
   return (
@@ -29,4 +29,5 @@ export const Badge: React.FC<BadgeProps> = ({
     </span>
   );
 };
+
 export default Badge;

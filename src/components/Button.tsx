@@ -11,19 +11,19 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const baseStyle = "inline-flex items-center justify-center font-visueltpro font-normal tracking-wide transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-action-violet active:scale-[0.98] cursor-pointer";
+  const baseStyle = "inline-flex items-center justify-center font-visueltpro font-normal tracking-[0.1em] uppercase text-[12px] transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-warm-oak active:scale-[0.98] cursor-pointer rounded-buttons";
   
   let variantStyle = "";
   
   if (variant === 'primary') {
-    // Primary Lozenge Button: #f5f5f0 background with #000000 text
-    variantStyle = "bg-slate-dust text-midnight-void rounded-buttons px-6 py-3 text-[14px] hover:bg-cloud-whisper hover:shadow-lg";
+    // Primary: Solid Brand Black background with Warm White text, square edges
+    variantStyle = "bg-brand-black text-bg-warm px-8 py-3.5 hover:bg-dark-walnut hover:shadow-md";
   } else if (variant === 'ghost') {
-    // Ghost Lozenge Button: transparent background, #ffffff text with #ffffff border
-    variantStyle = "bg-transparent text-cloud-whisper border border-cloud-whisper rounded-buttons px-5 py-[11px] text-[14px] hover:border-action-violet hover:text-action-violet";
+    // Ghost: Transparent background, text primary with border
+    variantStyle = "bg-transparent text-text-primary border border-text-primary px-7 py-3 hover:border-warm-oak hover:text-warm-oak";
   } else if (variant === 'violet') {
-    // Reusable Action Violet Accent Button
-    variantStyle = "bg-action-violet text-cloud-whisper rounded-buttons px-6 py-3 text-[14px] hover:bg-opacity-90 hover:shadow-[0_0_20px_rgba(127,0,255,0.4)] border border-transparent";
+    // Oak Accent: Warm Oak background, warm white text
+    variantStyle = "bg-warm-oak text-bg-warm px-8 py-3.5 hover:bg-dark-walnut hover:shadow-[0_4px_15px_rgba(184,151,116,0.2)] border border-transparent";
   }
 
   return (
@@ -35,4 +35,5 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+
 export default Button;

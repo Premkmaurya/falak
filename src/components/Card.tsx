@@ -18,11 +18,11 @@ export const Card: React.FC<CardProps> = ({
   let variantStyle = "";
   
   if (variant === 'standard') {
-    // Standard Card: Transparent background, 0px border radius, no box shadow
+    // Standard Card: Transparent background, 0px border radius, no border
     variantStyle = "rounded-none border border-transparent";
   } else if (variant === 'featured') {
-    // Featured Card: Transparent background, 10px border radius, no box shadow
-    variantStyle = "rounded-cards border border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.15)] bg-steel-gray/20 hover:bg-steel-gray/40 shadow-xl";
+    // Featured Card: Warm white / glass background, minimal rounded corners (4px as defined in index.css), light shadows
+    variantStyle = "rounded-cards border border-border-subtle hover:border-border-medium bg-white/80 hover:bg-white backdrop-blur-sm shadow-lg hover:shadow-xl";
   }
 
   return (
@@ -35,4 +35,5 @@ export const Card: React.FC<CardProps> = ({
     </div>
   );
 };
+
 export default Card;

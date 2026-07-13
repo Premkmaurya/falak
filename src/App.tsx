@@ -21,11 +21,14 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 
-// Resolve 40 frame paths served statically in the public folder
-const FRAME_COUNT = 40;
-const frameUrls = Array.from({ length: FRAME_COUNT }, (_, i) => 
-  `/frames/watermark_removed_0d8bc9a5-3c22-4ce5-97ce-a9d9171353c4_${String(i + 1).padStart(3, '0')}.png`
-);
+// Resolve Havora Studio core images to preload for premium zero-CLS initial load
+const PRELOAD_IMAGES = [
+  '/images/hero-tv-wall.png',
+  '/images/projects-sofa.png',
+  '/images/materials-wood-panel.png',
+  '/images/furniture-chairs.png',
+  '/images/craftsmanship-door.png'
+];
 
 // Page Transition Animation Wrapper
 const PageTransition: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -43,7 +46,7 @@ const PageTransition: React.FC<{ children: React.ReactNode }> = ({ children }) =
 };
 
 // Route wrapper that handles location changes, transitions, and Lenis resets
-const AnimatedRoutes: React.FC<{ preloadedImages: HTMLImageElement[] }> = ({ preloadedImages }) => {
+const AnimatedRoutes: React.FC = () => {
   const location = useLocation();
 
   // 1. Initialize Lenis Smooth Scroll
@@ -51,7 +54,7 @@ const AnimatedRoutes: React.FC<{ preloadedImages: HTMLImageElement[] }> = ({ pre
     const lenis = new Lenis({
       duration: 1.2,
       lerp: 0.04,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), /* Expensive momentum scroll */
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       wheelMultiplier: 1.0,
       touchMultiplier: 1.2,
@@ -64,9 +67,6 @@ const AnimatedRoutes: React.FC<{ preloadedImages: HTMLImageElement[] }> = ({ pre
 
     requestAnimationFrame(raf);
 
-    // Sync GSAP ScrollTrigger with Lenis
-    // Note: ScrollTrigger will capture normal wheel scroll naturally on pinned sections
-
     return () => {
       lenis.destroy();
     };
@@ -78,7 +78,7 @@ const AnimatedRoutes: React.FC<{ preloadedImages: HTMLImageElement[] }> = ({ pre
   }, [location.pathname]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-bg-warm">
       <Header />
       
       {/* Routed Pages with Fluid Transitions */}
@@ -90,7 +90,7 @@ const AnimatedRoutes: React.FC<{ preloadedImages: HTMLImageElement[] }> = ({ pre
               path="/" 
               element={
                 <PageTransition>
-                  <Home preloadedImages={preloadedImages} />
+                  <Home />
                 </PageTransition>
               } 
             />
@@ -141,7 +141,7 @@ const AnimatedRoutes: React.FC<{ preloadedImages: HTMLImageElement[] }> = ({ pre
 };
 
 export const App: React.FC = () => {
-  const { loaded, progress, images } = usePreloadImages(frameUrls);
+  const { loaded, progress } = usePreloadImages(PRELOAD_IMAGES);
 
   return (
     <>
@@ -151,31 +151,31 @@ export const App: React.FC = () => {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, filter: 'blur(15px)' }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 w-full h-full bg-midnight-void z-[9999] flex flex-col items-center justify-center font-visueltpro"
+            className="fixed inset-0 w-full h-full bg-bg-warm z-[9999] flex flex-col items-center justify-center font-visueltpro"
           >
             {/* Minimalist Logo */}
-            <div className="flex items-center space-x-3 mb-8">
-              <span className="font-bradford font-medium text-display-lg tracking-tight text-cloud-whisper uppercase">
-                SEQUEL
+            <div className="flex flex-col items-center mb-8">
+              <span className="font-bradford font-medium text-display-lg tracking-widest text-text-primary uppercase">
+                HAVORA STUDIO
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-action-violet animate-ping"></span>
+              <div className="w-12 h-[1px] bg-warm-oak mt-2" />
             </div>
 
-            {/* loading Percentage Progress */}
+            {/* Loading Percentage Progress */}
             <div className="relative flex flex-col items-center space-y-4">
-              <span className="text-[12px] tracking-widest text-ash-accent uppercase">
-                Loading Cinematic Chapters
+              <span className="text-[10px] tracking-[0.3em] text-text-secondary uppercase">
+                Crafting Timeless Spaces
               </span>
               
               {/* Floating numbers */}
-              <span className="font-bradford text-[54px] font-medium text-cloud-whisper select-none">
+              <span className="font-bradford text-[54px] font-medium text-text-primary select-none">
                 {String(progress).padStart(3, '0')}%
               </span>
 
               {/* Minimal bar */}
-              <div className="w-32 h-[1px] bg-[rgba(255,255,255,0.08)] relative overflow-hidden">
+              <div className="w-32 h-[1px] bg-border-subtle relative overflow-hidden">
                 <motion.div 
-                  className="absolute left-0 top-0 h-full bg-action-violet"
+                  className="absolute left-0 top-0 h-full bg-warm-oak"
                   style={{ width: `${progress}%` }}
                   transition={{ ease: 'easeOut' }}
                 />
@@ -185,9 +185,9 @@ export const App: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Render core app router once images are fully pre-cached */}
+      {/* Render core app router once images are pre-cached */}
       <BrowserRouter>
-        <AnimatedRoutes preloadedImages={images} />
+        <AnimatedRoutes />
       </BrowserRouter>
     </>
   );

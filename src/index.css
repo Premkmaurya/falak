@@ -1,23 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  /* Colors */
-  --color-midnight-void: #000000;
-  --color-cloud-whisper: #ffffff;
-  --color-slate-dust: #f5f5f0;
-  --color-steel-gray: #202020;
-  --color-mist-gray: #c0c0c0;
-  --color-charcoal-tone: #333333;
-  --color-ash-accent: #999999;
-  --color-light-ash: #cccccc;
-  --color-cadet-gray: #b3b3b3;
-  --color-badge-overlay: #333333;
-  --color-action-violet: #7F00FF; /* Premium Action Violet highlight used sparingly */
+  /* Havora Studio Color Palette */
+  --color-bg-warm: #F8F6F2;
+  --color-text-primary: #1F1F1F;
+  --color-text-secondary: #666666;
+  --color-warm-oak: #B89774;
+  --color-dark-walnut: #4E3E34;
+  --color-brand-black: #111111;
+  --color-card-bg: #FFFFFF;
+  --color-border-subtle: rgba(31, 31, 31, 0.08);
+  --color-border-medium: rgba(31, 31, 31, 0.15);
+  --color-white: #FFFFFF;
 
-  /* Typography — Font Families (Mapped to user-requested PolySans & Plus Jakarta Sans) */
+  /* Typography — Font Families (Mapped to Google Fonts) */
   --font-visueltpro: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-bradford: 'PolySans', 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-bradford: 'Cormorant Garamond', Georgia, serif;
 
   /* Typography — Scale */
   --text-caption: 10px;
@@ -65,28 +64,27 @@
   --radius-full: 9999px;
 
   /* Named Radii */
-  --radius-cards: 10px;
+  --radius-cards: 4px; /* Minimal, architectural - avoid round corners */
   --radius-badges: 9999px;
-  --radius-buttons: 9999px;
+  --radius-buttons: 0px; /* Editorial style square corners */
 
   /* Shadows */
-  --shadow-xl: rgba(0, 0, 0, 0.35) 0px 10px 30px 0px, rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset;
-  --shadow-lg: rgba(0, 0, 0, 0.15) 0px 4px 20px 0px;
+  --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 
 @theme {
   /* Make sure theme maps variables correctly for Tailwind utility generation */
-  --color-midnight-void: var(--color-midnight-void);
-  --color-cloud-whisper: var(--color-cloud-whisper);
-  --color-slate-dust: var(--color-slate-dust);
-  --color-steel-gray: var(--color-steel-gray);
-  --color-mist-gray: var(--color-mist-gray);
-  --color-charcoal-tone: var(--color-charcoal-tone);
-  --color-ash-accent: var(--color-ash-accent);
-  --color-light-ash: var(--color-light-ash);
-  --color-cadet-gray: var(--color-cadet-gray);
-  --color-badge-overlay: var(--color-badge-overlay);
-  --color-action-violet: var(--color-action-violet);
+  --color-bg-warm: var(--color-bg-warm);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-warm-oak: var(--color-warm-oak);
+  --color-dark-walnut: var(--color-dark-walnut);
+  --color-brand-black: var(--color-brand-black);
+  --color-card-bg: var(--color-card-bg);
+  --color-border-subtle: var(--color-border-subtle);
+  --color-border-medium: var(--color-border-medium);
+  --color-white: var(--color-white);
 
   --font-visueltpro: var(--font-visueltpro);
   --font-bradford: var(--font-bradford);
@@ -106,14 +104,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-midnight-void);
+  background: var(--color-bg-warm);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-charcoal-tone);
+  background: var(--color-border-medium);
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-ash-accent);
+  background: var(--color-text-secondary);
 }
 
 /* Lenis Smooth Scroll Configuration */
@@ -134,8 +132,8 @@ html.lenis, html.lenis body {
 }
 
 body {
-  background-color: var(--color-midnight-void);
-  color: var(--color-cloud-whisper);
+  background-color: var(--color-bg-warm);
+  color: var(--color-text-primary);
   font-family: var(--font-visueltpro);
   overflow-x: hidden;
   margin: 0;
@@ -183,7 +181,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--color-midnight-void);
+  background-color: var(--color-bg-warm);
   z-index: 9999;
   pointer-events: none;
   transform: scaleY(0);

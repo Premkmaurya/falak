@@ -12,99 +12,83 @@ export interface Project {
 
 export const portfolioProjects: Project[] = [
   {
-    id: 'kaizen-house',
-    title: 'KAIZEN HOUSE',
+    id: 'cliffside-oak-villa',
+    title: 'CLIFFSIDE OAK VILLA',
     category: 'Residential',
     year: '2025',
-    location: 'Kyoto, Japan',
-    area: '420 m²',
-    image: '/frames/watermark_removed_0d8bc9a5-3c22-4ce5-97ce-a9d9171353c4_010.png',
-    description: 'A study in quiet luxury and Japanese-Nordic fusion. Overlooking the dense forests of Kyoto, this residence utilizes textured concrete, sandblasted cedar, and sliding shoji screens to achieve absolute spatial fluidness.',
+    location: 'Alibaug, Maharashtra',
+    area: '450 m²',
+    image: '/images/hero-tv-wall.png',
+    description: 'A study in warm modernism and seamless indoor-outdoor living. Built around custom open-pore timber paneling, floating console units, and light stone slabs that catch natural daylight.',
     details: [
-      'Complete architectural spatial restructuring',
-      'Custom floor-to-ceiling brushed oak joinery',
-      'Textured micro-cement bathroom modules',
-      'Integrated shadow-gap ambient lighting tracks'
+      'Custom floor-to-ceiling oak TV wall system',
+      'Integrated linear ambient lighting tracks',
+      'Travertine stone texture details',
+      'Floating timber console joinery'
     ]
   },
   {
-    id: 'monolith-penthouse',
-    title: 'MONOLITH PENTHOUSE',
+    id: 'worli-walnut-penthouse',
+    title: 'WORLI WALNUT PENTHOUSE',
     category: 'Residential',
     year: '2026',
-    location: 'Zurich, Switzerland',
-    area: '310 m²',
-    image: '/frames/watermark_removed_0d8bc9a5-3c22-4ce5-97ce-a9d9171353c4_020.png',
-    description: 'An editorial vertical sanctuary floating high above the Zurich lake. Designed with a strict monochrome palette, it relies on large monolithic marble installations and dark acoustic wall panels to swallow the noise of the city.',
+    location: 'Mumbai, India',
+    area: '320 m²',
+    image: '/images/projects-sofa.png',
+    description: 'An architectural high-rise residence featuring structured timber partitions, low-slung luxury modular seating, and a customized walnut center table framing views of the Sea Link.',
     details: [
-      'Belgian limestone monolith fireplace integration',
-      'Acoustic felt wall paneling with ash ribs',
-      'Concealed frameless pivot entrance doors',
-      'Bespoke titanium-finished kitchen island'
+      'Bespoke walnut wood paneling and cabinetry',
+      'Low-slung modular sofa design',
+      'Curated texture scheme with linen and wood',
+      'Concealed storage and shadow gap borders'
     ]
   },
   {
-    id: 'aperture-gallery',
-    title: 'THE APERTURE STUDIO',
+    id: 'editorial-design-studio',
+    title: 'THE EDITORIAL STUDIO',
     category: 'Commercial',
     year: '2025',
-    location: 'Milano, Italy',
-    area: '780 m²',
-    image: '/frames/watermark_removed_0d8bc9a5-3c22-4ce5-97ce-a9d9171353c4_015.png',
-    description: 'A premium, high-contrast photographic studio and art gallery space in Milan. Created with massive double-height concrete arches, the space acts as a raw, neutral frame for contemporary art exhibits.',
+    location: 'Bengaluru, India',
+    area: '680 m²',
+    image: '/images/materials-wood-panel.png',
+    description: 'An architectural workspace and material library designed for creative collaboration. Highlighting geometric curved plaster partitions, textured panels, and linear vertical oak slats.',
     details: [
-      'Structural raw concrete cleaning and sealing',
-      'Dimmable gallery-grade track lights (CRI 98)',
-      'Asymmetric steel mezzanine construction',
-      'Floating micro-top polished concrete floor'
+      'Curved hand-plastered partition modules',
+      'Vertical acoustic oak timber slats',
+      'Natural linen textures and stone displays',
+      'Smart dimmable architectural light integration'
     ]
   },
   {
-    id: 'monolith-table',
-    title: 'THE SERENE LOZENGE TABLE',
+    id: 'boucle-chair-study',
+    title: 'THE BOUCLÉ CHAIRS',
     category: 'Custom Furniture',
     year: '2026',
-    location: 'Bespoke Production',
-    area: '3.2m Length',
-    image: '/frames/watermark_removed_0d8bc9a5-3c22-4ce5-97ce-a9d9171353c4_026.png',
-    description: 'A custom dining table crafted strictly around the 9999px pill border radius of the design system. Hand-sculpted from solid open-pore European oak, it stands on two massive cylinder pill bases.',
+    location: 'Custom Production',
+    area: 'Bespoke Objects',
+    image: '/images/furniture-chairs.png',
+    description: 'Minimalist dining chairs sculpted from solid dark-stained oak and organic cream bouclé textures. Designed to offer architectural form with exceptional tactile comfort.',
     details: [
-      'Solid open-pore black-lacquered European Oak',
-      'Cylindrical base modules with steel reinforcement',
-      'Flush-mounted bronze structural dowels',
-      'Eco-certified low-sheen matte oil finish'
+      'Solid open-pore dark-lacquered European Oak',
+      'Tactile premium bouclé seating cushion',
+      'Geometric vertical pillar support frame',
+      'Traditional mortise and tenon joinery'
     ]
   },
   {
-    id: 'residence-pavilion',
-    title: 'THE STILL PAVILION',
-    category: 'Renovation',
+    id: 'teak-portal-residence',
+    title: 'THE TEAK PORTAL RESIDENCE',
+    category: 'Turnkey Projects',
     year: '2025',
-    location: 'Oslo, Norway',
-    area: '560 m²',
-    image: '/frames/watermark_removed_0d8bc9a5-3c22-4ce5-97ce-a9d9171353c4_030.png',
-    description: 'A careful mid-century modern renovation project in Oslo. The layout was opened completely to let natural Norwegian light flood into deep corridors of raw limestone and patinated metal framing.',
+    location: 'New Delhi, India',
+    area: '580 m²',
+    image: '/images/craftsmanship-door.png',
+    description: 'A luxurious turnkey residential redesign combining heritage wood craftsmanship with modern architectural styling. Marked by a monumental solid teak double entrance door.',
     details: [
-      'Restoration of original Douglas Fir timber ceilings',
-      'Floor-to-ceiling structural steel glazed dividers',
-      'Bespoke hand-applied plaster wall finishes',
-      'Imported Portuguese travertine slab flooring'
-    ]
-  },
-  {
-    id: 'omega-office',
-    title: 'OMEGA EXECUTIVE OFFICES',
-    category: 'Commercial',
-    year: '2026',
-    location: 'London, United Kingdom',
-    area: '1,100 m²',
-    image: '/frames/watermark_removed_0d8bc9a5-3c22-4ce5-97ce-a9d9171353c4_035.png',
-    description: 'A workspace reimagined as an intellectual, low-stimulus premium lounge. Emphasizes dark ash veneers, custom-molded badges, and luxurious acoustical engineering for ultimate executive tranquility.',
-    details: [
-      'State-of-the-art noise dampening sub-ceilings',
-      'Semi-private glass meeting capsules',
-      'Custom workspace desks with leather inlays',
-      'Ergonomic architectural layout analysis'
+      'Hand-carved solid teak wood entrance doors',
+      'Turnkey project management & staging',
+      'Bespoke floor-to-ceiling brass-lined joinery',
+      'Imported Italian marble flooring restoration'
     ]
   }
 ];

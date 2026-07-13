@@ -5,72 +5,72 @@ import Card from '../components/Card';
 
 export const About: React.FC = () => {
   return (
-    <div className="w-full bg-midnight-void pt-44 pb-36">
+    <div className="w-full bg-bg-warm pt-44 pb-36">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Editorial Header */}
         <div className="max-w-3xl mb-24">
-          <Badge variant="subtle" className="mb-4">PHILOSOPHY</Badge>
-          <h1 className="font-bradford font-medium text-[36px] md:text-[64px] lg:text-[76px] leading-[1.05] text-cloud-whisper tracking-tighter uppercase mb-6">
-            SPACES OF<br />STILLNESS
+          <Badge variant="subtle" className="mb-4">Philosophy</Badge>
+          <h1 className="font-bradford font-normal text-[36px] md:text-[64px] lg:text-[76px] leading-[1.05] text-text-primary uppercase mb-6">
+            SANCTUARIES OF<br />STILLNESS
           </h1>
-          <p className="font-visueltpro text-light-ash/85 text-[16px] leading-relaxed max-w-xl">
-            Established in 2018, Sequel was born out of a desire to create silent architecture. We reject decorative visual noise, choosing instead to focus on raw spatial volumes, tactile honest materials, and precise geometric light.
+          <p className="font-visueltpro text-text-secondary text-[16px] leading-relaxed max-w-xl font-light">
+            Founded with a vision to challenge noisy design, Havora Studio creates environments of quiet restraint. We focus on raw spatial volumes, honest natural materials, and precise geometric lighting to build homes and workspaces that feel architectural, editorial, and deeply comforting.
           </p>
         </div>
 
         {/* Double-Height Visual Frame */}
-        <div className="w-full h-[60vh] md:h-[70vh] rounded-cards overflow-hidden mb-32 border border-[rgba(255,255,255,0.06)]">
+        <div className="w-full h-[60vh] md:h-[70vh] rounded-cards overflow-hidden mb-32 border border-border-subtle shadow-md">
           <motion.img 
             initial={{ scale: 1.05 }}
             animate={{ scale: 1.0 }}
             transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-            src="/frames/watermark_removed_0d8bc9a5-3c22-4ce5-97ce-a9d9171353c4_008.png"
-            alt="Minimal Studio Spaces"
-            className="w-full h-full object-cover opacity-80"
+            src="/images/materials-wood-panel.png"
+            alt="Havora Studio Material Detail"
+            className="w-full h-full object-cover"
           />
         </div>
 
-        {/* Pillars Section — Comfort Spacing, Strong Typography */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-24 mb-40 border-b border-[rgba(255,255,255,0.06)] pb-28">
+        {/* Pillars Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-40 border-b border-border-subtle pb-28">
           
           <div>
-            <span className="font-bradford text-action-violet text-display-lg block mb-4">01 /</span>
-            <h3 className="font-bradford font-medium text-heading-lg text-cloud-whisper uppercase mb-4 tracking-tight">
-              VOLUME OVER DECOR
+            <span className="font-bradford text-warm-oak text-display-lg block mb-4">01 /</span>
+            <h3 className="font-bradford font-normal text-heading-lg text-text-primary uppercase mb-4 tracking-tight">
+              Volume & Light
             </h3>
-            <p className="font-visueltpro text-[14px] text-light-ash leading-relaxed">
-              We believe a room's luxury is defined by its scale, proportions, and light circulation rather than custom ornamentation. We design empty volumes that breathe.
+            <p className="font-visueltpro text-[14px] text-text-secondary leading-relaxed font-light">
+              We believe a room's luxury is defined by its proportions, flow, and how daylight circulates rather than ad-hoc ornamentation. We design empty spatial volumes that breathe.
             </p>
           </div>
 
           <div>
-            <span className="font-bradford text-action-violet text-display-lg block mb-4">02 /</span>
-            <h3 className="font-bradford font-medium text-heading-lg text-cloud-whisper uppercase mb-4 tracking-tight">
-              TACTILE RESTRAINT
+            <span className="font-bradford text-warm-oak text-display-lg block mb-4">02 /</span>
+            <h3 className="font-bradford font-normal text-heading-lg text-text-primary uppercase mb-4 tracking-tight">
+              Material Honesty
             </h3>
-            <p className="font-visueltpro text-[14px] text-light-ash leading-relaxed">
-              Material honesty is paramount. We employ raw brushed timbers, micro-cement plaster, and monolithic Travertine blocks, celebrating their natural patinas.
+            <p className="font-visueltpro text-[14px] text-text-secondary leading-relaxed font-light">
+              We employ open-pore natural oaks, dark walnut logs, textured plaster, and monolithic travertine slabs. We let materials speak for themselves, celebrating their natural textures.
             </p>
           </div>
 
           <div>
-            <span className="font-bradford text-action-violet text-display-lg block mb-4">03 /</span>
-            <h3 className="font-bradford font-medium text-heading-lg text-cloud-whisper uppercase mb-4 tracking-tight">
-              INTELLECTUAL WEIGHT
+            <span className="font-bradford text-warm-oak text-display-lg block mb-4">03 /</span>
+            <h3 className="font-bradford font-normal text-heading-lg text-text-primary uppercase mb-4 tracking-tight">
+              Execution Rigor
             </h3>
-            <p className="font-visueltpro text-[14px] text-light-ash leading-relaxed">
-              We approach interior spaces with architectural rigor. Every shadow gap, flush pivot door, and lighting alignment is calculated to the millimeter.
+            <p className="font-visueltpro text-[14px] text-text-secondary leading-relaxed font-light">
+              We approach interior spaces with architectural precision. Every shadow gap, flush pivot door, custom handle, and lighting alignment is calculated to the millimeter.
             </p>
           </div>
 
         </div>
 
-        {/* Team Leadership Grid */}
+        {/* Creative Leadership Grid */}
         <div>
           <div className="mb-24">
-            <Badge variant="subtle" className="mb-4">CREATIVE LEADERSHIP</Badge>
-            <h2 className="font-bradford font-medium text-[32px] md:text-[44px] lg:text-[48px] text-cloud-whisper uppercase tracking-tight">
+            <Badge variant="subtle" className="mb-4">Creative Leadership</Badge>
+            <h2 className="font-bradford font-normal text-[32px] md:text-[44px] lg:text-[48px] text-text-primary uppercase tracking-tight">
               The Founders
             </h2>
           </div>
@@ -78,46 +78,46 @@ export const About: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
             
             {/* Founder 1 */}
-            <Card variant="featured" className="p-8 border border-[rgba(255,255,255,0.04)] bg-steel-gray/10">
-              <div className="aspect-[4/3] rounded-cards overflow-hidden mb-6">
+            <Card variant="featured" className="p-8 border border-border-subtle bg-white/40">
+              <div className="aspect-[4/3] rounded-cards overflow-hidden mb-6 border border-border-subtle">
                 <img 
-                  src="/frames/watermark_removed_0d8bc9a5-3c22-4ce5-97ce-a9d9171353c4_011.png" 
-                  alt="Kenji Sato"
-                  className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-[1200ms] ease-[0.16,1,0.3,1]"
+                  src="/images/furniture-chairs.png" 
+                  alt="Kenji Sato — Principal Architect"
+                  className="w-full h-full object-cover transition-all duration-[1200ms] ease-out"
                 />
               </div>
               <div className="flex items-baseline justify-between mb-4">
-                <h3 className="font-bradford font-medium text-display-sm text-cloud-whisper uppercase">
+                <h3 className="font-bradford font-normal text-display-sm text-text-primary uppercase">
                   Kenji Sato
                 </h3>
-                <span className="font-visueltpro text-caption text-ash-accent tracking-widest uppercase">
-                  Architectural Director
+                <span className="font-visueltpro text-caption text-text-secondary tracking-widest uppercase">
+                  Principal Architect
                 </span>
               </div>
-              <p className="font-visueltpro text-[14px] text-light-ash leading-relaxed">
-                Kenji studied architecture at the University of Tokyo and has spent over 15 years practicing raw minimalism. He oversees all spatial layouts, structural plans, and monolithic stone detailing for Sequel's projects.
+              <p className="font-visueltpro text-[14px] text-text-secondary leading-relaxed font-light">
+                Kenji studied architecture at the University of Tokyo and has spent over 15 years practicing minimal space planning. He oversees all structural layouts, technical elevations, and monolithic stone detailing for Havora Studio's premium residential designs.
               </p>
             </Card>
 
             {/* Founder 2 */}
-            <Card variant="featured" className="p-8 border border-[rgba(255,255,255,0.04)] bg-steel-gray/10">
-              <div className="aspect-[4/3] rounded-cards overflow-hidden mb-6">
+            <Card variant="featured" className="p-8 border border-border-subtle bg-white/40">
+              <div className="aspect-[4/3] rounded-cards overflow-hidden mb-6 border border-border-subtle">
                 <img 
-                  src="/frames/watermark_removed_0d8bc9a5-3c22-4ce5-97ce-a9d9171353c4_024.png" 
-                  alt="Elena Vujović"
-                  className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-[1200ms] ease-[0.16,1,0.3,1]"
+                  src="/images/craftsmanship-door.png" 
+                  alt="Elena Vujović — Creative Director"
+                  className="w-full h-full object-cover transition-all duration-[1200ms] ease-out"
                 />
               </div>
               <div className="flex items-baseline justify-between mb-4">
-                <h3 className="font-bradford font-medium text-display-sm text-cloud-whisper uppercase">
+                <h3 className="font-bradford font-normal text-display-sm text-text-primary uppercase">
                   Elena Vujović
                 </h3>
-                <span className="font-visueltpro text-caption text-ash-accent tracking-widest uppercase">
-                  Interior Director
+                <span className="font-visueltpro text-caption text-text-secondary tracking-widest uppercase">
+                  Creative Director
                 </span>
               </div>
-              <p className="font-visueltpro text-[14px] text-light-ash leading-relaxed">
-                Elena received her design training in Milan. She focuses on material curation, textile architecture, custom furniture joints, and tactile interfaces, ensuring Sequel's quiet spaces feel profoundly warm and comfortable.
+              <p className="font-visueltpro text-[14px] text-text-secondary leading-relaxed font-light">
+                Elena received her interior design training in Milan. She focuses on tactile material curation, wood textures, bespoke custom joinery details, and staging, ensuring Havora's spaces feel profoundly warm, welcoming, and editorial.
               </p>
             </Card>
 

@@ -17,94 +17,94 @@ export const Services: React.FC = () => {
   const servicesList: ServiceDetail[] = [
     {
       id: 'residential',
-      title: 'Residential Interior',
-      subtitle: '01 / PRIVATE LUXURY',
-      description: 'Creation of tailored private homes, apartments, and villas. We focus on custom floor-to-ceiling wooden dividers, micro-cement finishes, and stone alignments that create fluid spatial volume.',
+      title: 'Residential Interiors',
+      subtitle: '01 / PRIVATE SANCTUARIES',
+      description: 'Creation of tailored private homes, villas, and apartments. We focus on custom floor-to-ceiling wooden joinery, stone console details, and flow optimizations that shape open volumes.',
       processes: [
-        'Detailed lifestyle & space utilization analysis',
-        'Spatial zoning, layout plans, & furniture mockups',
-        'Texture boards, plaster studies, & metal selection',
-        'Curation of designer lighting & custom floor plans'
+        'Detailed lifestyle analysis & room zoning layouts',
+        'Custom modular kitchen & wardrobe joinery drawings',
+        'Material palette curation (oak, travertine, plaster)',
+        'Architectural lighting planning & fixture selection'
       ]
     },
     {
       id: 'commercial',
-      title: 'Commercial Spaces',
-      subtitle: '02 / EXECUTIVE LOUNGES & GALLERIES',
-      description: 'Design of corporate spaces, boutique galleries, and high-end workspaces. We sculpt low-stimulus environments with acoustically treated ash ribbing and neutral, commanding surfaces.',
+      title: 'Commercial Interiors',
+      subtitle: '02 / EXECUTIVE LOUNGES & STUDIOS',
+      description: 'Design of high-end corporate offices, boutique retail, and galleries. We build low-stimulus, focused workspaces with wood acoustic paneling and Command-oriented stone elements.',
       processes: [
-        'Corporate brand mapping & programmatic analysis',
-        'Acoustical engineering & spatial resonance analysis',
-        'Dimmable gallery-grade smart lighting configuration',
-        'Bespoke executive boardroom design & modular desks'
+        'Brand coordinate translation & workflow analysis',
+        'Acoustical panel design & spatial resonance control',
+        'Smart lighting controls & high-rendering setups',
+        'Custom executive conference tables & storage pieces'
       ]
     },
     {
-      id: 'furniture',
-      title: 'Custom Furniture',
-      subtitle: '03 / BESPOKE OBJECTS',
-      description: 'Design and handcrafting of individual furniture pieces (tables, chairs, wall shelving). Created using solid oak, limestone, and copper joints following the 9999px lozenge pill radius rules.',
+      id: 'turnkey',
+      title: 'Turnkey Solutions',
+      subtitle: '03 / COMPLETE STEWARDSHIP',
+      description: 'End-to-end design, purchasing coordination, and staging management. We coordinate local contractors and joiners to ensure the design blueprint is realized with zero visual deviation.',
       processes: [
-        'Proportion sketching & full-scale digital CAD mockups',
-        'Timber slab sourcing (black European oak, solid ash)',
-        'Traditional flush-joint joinery and bronze pin dowels',
-        'Low-sheen organic matte oil hand application'
+        'Detailed cost estimating & vendor vetting',
+        'Regular site inspections & construction checks',
+        'Furniture, lighting & fabric ordering coordination',
+        'Final staging, artwork placement, & handoff'
       ]
     },
     {
       id: 'space-planning',
       title: 'Space Planning',
-      subtitle: '04 / VOLUME DESIGN',
-      description: 'Rigorous geometric structuring of interior volumes. We map human traffic, natural light entries, and visual shadow paths to define flush boundaries and seamless corridor sightlines.',
+      subtitle: '04 / VOLUME STRUCTURES',
+      description: 'Rigorous geometric organization of interior layouts. We map circulation flow, structural walls, and window light openings to define clean corridors and flush transitions.',
       processes: [
-        '3D laser scanning of existing raw environments',
-        'Sightline optimization & structural load coordination',
-        'Concealed framing, shadow gaps, & flush baseboards',
-        'Visual rendering models & lighting direction map'
+        'Existing site dimension checking & CAD layouts',
+        'Slab opening, wall location, & portal positioning',
+        'Flush trimless frames, floor joints, & baseboard detail drawings',
+        'Visual spatial walkthroughs & lighting path plans'
       ]
     },
     {
-      id: 'turnkey',
-      title: 'Turnkey Projects',
-      subtitle: '05 / COMPLETE STEWARDSHIP',
-      description: 'End-to-end design, sourcing, construction coordination, and staging. We manage the absolute details, ensuring the architectural blueprint is realized with zero visual compromise.',
+      id: 'furniture-design',
+      title: 'Furniture Design',
+      subtitle: '05 / CUSTOM OBJECTS',
+      description: 'Bespoke design and production of stand-alone furniture items (dining tables, chairs, credenzas). Created with open-pore wood logs and textured fabric wraps.',
       processes: [
-        'Comprehensive timeline planning & vendor vetting',
-        'Rigorous material sourcing & on-site inspection',
-        'Precision installations & joinery adjustment supervision',
-        'Interior final placement, curation, & visual handoff'
+        'Draft sketch elevations & digital CAD drawings',
+        'Timber selection (natural oak, dark walnut, ash logs)',
+        'Traditional flush carpentry joinery & dowel detailing',
+        'Organic low-sheen matte oil hand rub finish'
       ]
     },
     {
-      id: 'renovation',
-      title: 'Renovation',
-      subtitle: '06 / ARCHITECTURAL RESTORATION',
-      description: 'Careful preservation and structural modernization of historical, brutalist, or mid-century properties. We strip away past clutter to reveal original concrete, timber, and travertine layers.',
+      id: 'material-consultation',
+      title: 'Material Consultation',
+      subtitle: '06 / TACTILE CURATION',
+      description: 'Sourcing and specifying rich interior textures. We build curated material boards detailing wood veneers, natural stones, brushed plaster finishes, and accent metals.',
       processes: [
-        'Preservation assessment of timber, stone, or iron',
-        'Removal of non-structural divider blocks and drywall',
-        'Modern structural glass, windows, & framing additions',
-        'Restoration of original Douglas Fir or plaster work'
+        'Physical sample board coordination & mockups',
+        'Stone block selection at local quarries/dealers',
+        'Plaster texture mockups & timber finish matching',
+        'Material specification sheet templates for builders'
       ]
     }
   ];
 
   return (
-    <div className="w-full bg-midnight-void pt-44 pb-36">
+    <div className="w-full bg-bg-warm pt-44 pb-36">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Practices Header */}
         <div className="max-w-3xl mb-24">
-          <Badge variant="subtle" className="mb-4">PRACTICES</Badge>
-          <h1 className="font-bradford font-medium text-[36px] md:text-[64px] lg:text-[76px] leading-[1.05] text-cloud-whisper tracking-tighter uppercase mb-6">
+          <Badge variant="subtle" className="mb-4">Services</Badge>
+          <h1 className="font-bradford font-normal text-[36px] md:text-[64px] lg:text-[76px] leading-[1.05] text-text-primary uppercase mb-6">
             PRACTICES &<br />DISCIPLINARIES
           </h1>
-          <p className="font-visueltpro text-light-ash/85 text-[16px] leading-relaxed max-w-xl">
-            We deliver complete interior design services across six major core pillars. Our processes follow a meticulous, non-compromising timeline that ensures absolute quality from blueprints to the final staging handoff.
+          <p className="font-visueltpro text-text-secondary text-[16px] leading-relaxed max-w-xl font-light">
+            We deliver complete interior design services across six major core pillars. Our processes follow a meticulous, non-compromising workflow that ensures absolute quality from initial layout drawings to the final staging handoff.
           </p>
         </div>
 
-        {/* 6 Elegant Service Cards Grid */}
+        {/* 6 Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-start">
           {servicesList.map((service) => {
             const isOpen = activeId === service.id;
@@ -113,32 +113,32 @@ export const Services: React.FC = () => {
               <Card
                 key={service.id}
                 variant="featured"
-                className={`p-8 flex flex-col justify-between transition-all duration-500 border border-[rgba(255,255,255,0.04)] ${
+                className={`p-8 flex flex-col justify-between transition-all duration-500 border border-border-subtle ${
                   isOpen 
-                    ? 'border-action-violet bg-steel-gray/30 ring-1 ring-action-violet/30' 
-                    : 'hover:border-[rgba(255,255,255,0.12)] hover:bg-steel-gray/20'
+                    ? 'border-warm-oak bg-white shadow-xl ring-1 ring-warm-oak/20' 
+                    : 'hover:border-border-medium hover:bg-white/80'
                 }`}
                 onClick={() => setActiveId(isOpen ? null : service.id)}
               >
                 <div>
                   {/* Card Subtitle */}
-                  <span className="font-visueltpro text-[10px] tracking-widest text-ash-accent block mb-6 uppercase">
+                  <span className="font-visueltpro text-[10px] tracking-widest text-text-secondary/70 block mb-6 uppercase">
                     {service.subtitle}
                   </span>
 
                   {/* Card Title */}
-                  <h3 className="font-bradford font-medium text-display-sm text-cloud-whisper mb-4 uppercase tracking-tight">
+                  <h3 className="font-bradford font-normal text-display-sm text-text-primary mb-4 uppercase tracking-tight">
                     {service.title}
                   </h3>
 
                   {/* Card Description */}
-                  <p className="font-visueltpro text-[14px] text-light-ash leading-relaxed mb-6">
+                  <p className="font-visueltpro text-[14px] text-text-secondary leading-relaxed mb-6 font-light">
                     {service.description}
                   </p>
                 </div>
 
                 {/* Toggle details link */}
-                <div className="mt-4 flex items-center justify-between text-caption text-action-violet hover:text-cloud-whisper transition-colors duration-300 font-visueltpro tracking-widest uppercase pointer-events-none">
+                <div className="mt-4 flex items-center justify-between text-caption text-warm-oak hover:text-text-primary transition-colors duration-300 font-visueltpro tracking-widest uppercase pointer-events-none">
                   <span>{isOpen ? 'Close details' : 'Expand details'}</span>
                   <span>{isOpen ? '–' : '+'}</span>
                 </div>
@@ -151,16 +151,16 @@ export const Services: React.FC = () => {
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="overflow-hidden border-t border-[rgba(255,255,255,0.06)] mt-6 pt-6"
+                      className="overflow-hidden border-t border-border-subtle mt-6 pt-6"
                     >
-                      <h4 className="font-visueltpro font-medium text-[11px] uppercase tracking-widest text-cloud-whisper mb-4">
+                      <h4 className="font-visueltpro font-medium text-[11px] uppercase tracking-widest text-text-primary mb-4">
                         Phase deliverables
                       </h4>
-                      <ul className="space-y-3 font-visueltpro text-[13px] text-light-ash">
+                      <ul className="space-y-3 font-visueltpro text-[13px] text-text-secondary">
                         {service.processes.map((proc, pIdx) => (
                           <li key={pIdx} className="flex items-start space-x-3">
-                            <span className="text-action-violet mt-1 font-bold">&bull;</span>
-                            <span>{proc}</span>
+                            <span className="text-warm-oak mt-1 font-bold">&bull;</span>
+                            <span className="font-light">{proc}</span>
                           </li>
                         ))}
                       </ul>
