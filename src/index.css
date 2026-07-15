@@ -5,7 +5,7 @@
   /* Havora Studio Color Palette */
   --color-bg-warm: #F8F6F2;
   --color-text-primary: #1F1F1F;
-  --color-text-secondary: #666666;
+  --color-text-secondary: #3C3C3C; /* Darker slate for higher readability contrast */
   --color-warm-oak: #B89774;
   --color-dark-walnut: #4E3E34;
   --color-brand-black: #111111;
@@ -34,10 +34,10 @@
   --leading-display-lg: 1;
   --tracking-display-lg: -0.8px;
 
-  /* Typography — Weights */
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
+  /* Typography — Weights (Boosted globally for improved contrast) */
+  --font-weight-light: 400;   /* Mapped to regular for body text readability */
+  --font-weight-regular: 500; /* Mapped to medium */
+  --font-weight-medium: 600;  /* Mapped to semi-bold */
 
   /* Spacing */
   --spacing-unit: 4px;
@@ -89,6 +89,11 @@
   --font-visueltpro: var(--font-visueltpro);
   --font-bradford: var(--font-bradford);
 
+  /* Force Tailwind weight classes to map to boosted weights globally */
+  --font-weight-light: var(--font-weight-light);
+  --font-weight-normal: var(--font-weight-regular);
+  --font-weight-medium: var(--font-weight-medium);
+
   --radius-lg: var(--radius-lg);
   --radius-full: var(--radius-full);
   --radius-cards: var(--radius-cards);
@@ -139,6 +144,69 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.philosophy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: color 0.3s ease;
+}
+
+.philosophy-link:hover,
+.philosophy-link:focus-visible {
+  color: var(--color-warm-oak);
+}
+
+.philosophy-label {
+  position: relative;
+  padding-bottom: 0.35rem;
+  letter-spacing: 0.28em;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.philosophy-label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-warm-oak);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.philosophy-link:hover .philosophy-label::after,
+.philosophy-link:focus-visible .philosophy-label::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.philosophy-arrow {
+  width: 30px;
+  height: 10px;
+  flex-shrink: 0;
+  transform: translateX(-8px);
+  transition: transform 0.3s ease;
+}
+
+.philosophy-arrow path {
+  fill: currentColor;
+}
+
+.philosophy-link:hover .philosophy-arrow,
+.philosophy-link:focus-visible .philosophy-arrow {
+  transform: translateX(0);
+}
+
+.philosophy-link:active .philosophy-arrow {
+  transform: scale(0.92);
 }
 
 /* Typography helper classes corresponding to design tokens */

@@ -7,10 +7,9 @@ export const Header: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Work', path: '/projects' },
+    { name: 'About', path: '/about' }
   ];
 
   // Motion variants for mobile menu stagger reveals
@@ -44,59 +43,73 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 border-b border-border-subtle bg-bg-warm/75 backdrop-blur-md transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
-          
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <span className="font-bradford font-medium text-heading-lg tracking-widest text-text-primary transition-all duration-300 group-hover:text-warm-oak uppercase">
-              HAVORA STUDIO
-            </span>
-          </Link>
+      {/* A. DESKTOP HEADER (Floating Pill Style — Center-positioned, matching layout request) */}
+      <div className="hidden md:flex fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl items-center justify-between bg-black/90 backdrop-blur-md px-8 py-3.5 rounded-full border border-white/10 shadow-2xl text-white font-visueltpro">
+        {/* Logo */}
+        <Link to="/" className="flex items-center space-x-1 group">
+          <span className="font-bradford font-medium text-[20px] tracking-widest text-white transition-all duration-300 group-hover:text-warm-oak uppercase">
+            HAVORA&middot;STUDIO
+          </span>
+        </Link>
 
-          {/* Navigation Links — Desktop only */}
-          <nav className="hidden md:flex items-center space-x-12">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                className={({ isActive }: { isActive: boolean }) => 
-                  `font-visueltpro text-[11px] tracking-[0.2em] uppercase transition-all duration-500 ${
-                    isActive 
-                      ? 'text-text-primary font-medium relative after:absolute after:bottom-[-8px] after:left-0 after:w-full after:h-[1px] after:bg-text-primary' 
-                      : 'text-text-secondary hover:text-text-primary'
-                  }`
-                }
-              >
-                {link.name}
-              </NavLink>
-            ))}
-          </nav>
-
-          {/* Action and Menu Toggles */}
-          <div className="flex items-center space-x-4">
-            <Link to="/contact" className="inline-flex cursor-pointer focus:outline-none">
-              <span className="font-visueltpro text-[10px] text-text-primary border border-border-medium hover:border-text-primary px-5 py-2.5 uppercase tracking-[0.15em] transition-all duration-500 bg-transparent hover:bg-text-primary hover:text-bg-warm active:scale-95">
-                Inquire
-              </span>
-            </Link>
-            
-            {/* Mobile Menu Button */}
-            <button 
-              onClick={() => setMenuOpen(true)} 
-              className="md:hidden cursor-pointer focus:outline-none bg-transparent"
-              aria-label="Open Menu"
+        {/* Navigation Links */}
+        <nav className="flex items-center space-x-10">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }: { isActive: boolean }) => 
+                `text-[13px] tracking-wider transition-colors duration-300 ${
+                  isActive 
+                    ? 'text-white font-medium relative after:absolute after:bottom-[-4px] after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:rounded-full after:bg-warm-oak' 
+                    : 'text-white/60 hover:text-white'
+                }`
+              }
             >
-              <span className="font-visueltpro text-[10px] text-text-primary border border-border-medium hover:border-text-primary px-5 py-2.5 uppercase tracking-[0.15em] transition-all duration-500 bg-transparent hover:bg-text-primary hover:text-bg-warm active:scale-95">
-                Menu
-              </span>
-            </button>
+              {link.name}
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* Right Section (Language & Contact button) */}
+        <div className="flex items-center space-x-6">
+          {/* Language Switcher */}
+          <div className="flex items-center space-x-2 text-[12px] font-medium tracking-wider select-none">
+            <span className="text-warm-oak cursor-pointer">EN</span>
+            
           </div>
 
+          {/* Contact Button */}
+          <Link to="/contact">
+            <button className="border border-white/20 hover:border-white text-white hover:bg-white hover:text-black rounded-full px-5 py-2 text-[11px] font-medium tracking-widest uppercase transition-all duration-300 active:scale-95 cursor-pointer">
+              Contact
+            </button>
+          </Link>
         </div>
+      </div>
+
+      {/* B. MOBILE HEADER (Standard top bar for clean layouts) */}
+      <header className="md:hidden fixed top-0 left-0 w-full z-50 border-b border-border-subtle bg-bg-warm/75 backdrop-blur-md h-16 flex items-center justify-between px-6">
+        {/* Logo */}
+        <Link to="/" className="flex items-center space-x-2">
+          <span className="font-bradford font-medium text-heading-lg tracking-widest text-text-primary uppercase">
+            HAVORA STUDIO
+          </span>
+        </Link>
+
+        {/* Menu Toggle */}
+        <button 
+          onClick={() => setMenuOpen(true)} 
+          className="cursor-pointer focus:outline-none bg-transparent"
+          aria-label="Open Menu"
+        >
+          <span className="font-visueltpro text-[10px] text-text-primary border border-border-medium hover:border-text-primary px-4 py-2 uppercase tracking-[0.12em] transition-all duration-500 bg-transparent active:scale-95">
+            Menu
+          </span>
+        </button>
       </header>
 
-      {/* Full-Screen Premium Mobile Overlay Menu */}
+      {/* C. MOBILE FULL-SCREEN MENU OVERLAY */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -106,7 +119,7 @@ export const Header: React.FC = () => {
             variants={menuVariants}
             className="fixed inset-0 w-screen h-screen bg-bg-warm/98 backdrop-blur-xl z-[999] flex flex-col justify-between p-8"
           >
-            {/* Mobile Menu Header Bar */}
+            {/* Mobile Header */}
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <span className="font-bradford font-medium text-heading-lg tracking-widest text-text-primary uppercase">
@@ -114,7 +127,7 @@ export const Header: React.FC = () => {
                 </span>
               </div>
 
-              {/* Close Button */}
+              {/* Close button */}
               <button 
                 onClick={() => setMenuOpen(false)}
                 className="cursor-pointer focus:outline-none bg-transparent"
@@ -126,7 +139,7 @@ export const Header: React.FC = () => {
               </button>
             </div>
 
-            {/* Staggered Nav Links */}
+            {/* Staggered Links */}
             <nav className="flex flex-col space-y-6 md:space-y-8 my-auto text-left pl-4">
               {navLinks.map((link) => (
                 <motion.div 
@@ -149,9 +162,26 @@ export const Header: React.FC = () => {
                   </NavLink>
                 </motion.div>
               ))}
+              
+              {/* Extra Contact Link in Mobile Menu list */}
+              <motion.div variants={linkVariants} transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.8 }}>
+                <NavLink
+                  to="/contact"
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }: { isActive: boolean }) => 
+                    `font-bradford text-[36px] md:text-[48px] uppercase tracking-tight block transition-all duration-300 ${
+                      isActive 
+                        ? 'text-warm-oak pl-2 border-l border-warm-oak font-medium' 
+                        : 'text-text-primary hover:text-warm-oak'
+                    }`
+                  }
+                >
+                  Contact
+                </NavLink>
+              </motion.div>
             </nav>
 
-            {/* Mobile Menu Footer */}
+            {/* Mobile Footer */}
             <motion.div 
               variants={linkVariants}
               className="grid grid-cols-2 gap-8 border-t border-border-subtle pt-6 pl-4 font-visueltpro text-[11px] text-text-secondary uppercase tracking-wider"

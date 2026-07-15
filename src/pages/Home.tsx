@@ -1,186 +1,34 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useInView } from 'framer-motion';
 import Button from '../components/Button';
 import Badge from '../components/Badge';
 import Card from '../components/Card';
 import { portfolioProjects } from '../data/portfolio';
+import HeroSection from '../components/home/HeroSection';
+import AboutSection from '../components/home/AboutSection';
+import StatsSection from '../components/home/StatsSection';
+import CtaSection from '../components/home/CtaSection';
+import WhyChooseUsSection from '../components/home/WhyChooseUsSection';
 
 // Smooth eased animated counter component
-const Counter: React.FC<{ target: number; suffix?: string }> = ({ target, suffix = "" }) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
-  useEffect(() => {
-    if (!isInView) return;
-    const duration = 1.5; // seconds
-    const frameRate = 1000 / 60;
-    const totalFrames = Math.round(duration * 60);
-    let frame = 0;
-
-    const counter = setInterval(() => {
-      frame++;
-      const progress = frame / totalFrames;
-      const easedProgress = progress * (2 - progress); // Ease Out Quad
-      const current = Math.round(easedProgress * target);
-      setCount(current);
-
-      if (frame >= totalFrames) {
-        clearInterval(counter);
-        setCount(target);
-      }
-    }, frameRate);
-
-    return () => clearInterval(counter);
-  }, [isInView, target]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-};
 
 export const Home: React.FC = () => {
   const teaserProjects = portfolioProjects.slice(0, 2);
-  const projectsSectionRef = useRef<HTMLDivElement>(null);
-
-  const scrollToProjects = () => {
-    projectsSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
+    const projectsSectionRef = useRef<HTMLDivElement>(null);
+  
+  
   return (
     <div className="w-full bg-bg-warm">
       
       {/* 1. HERO SECTION (Luxury Editorial Layout) */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-        {/* Full-bleed background image with parallax effect */}
-        <div className="absolute inset-0 w-full h-full">
-          <motion.img 
-            initial={{ scale: 1.08 }}
-            animate={{ scale: 1.0 }}
-            transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
-            src="/images/hero-tv-wall.png" 
-            alt="Havora Studio TV Wall Living Room" 
-            className="w-full h-full object-cover"
-          />
-          {/* Gentle warm ambient overlay mask */}
-          <div className="absolute inset-0 bg-brand-black/25 backdrop-brightness-[0.85] pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-warm via-transparent to-black/10 pointer-events-none" />
-        </div>
-
-        {/* Hero Typography & Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white flex flex-col items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.0, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Badge variant="lozenge" className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm">
-              Havora Studio
-            </Badge>
-          </motion.div>
-
-          <motion.h1 
-            initial={{ opacity: 0, y: 35 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="font-bradford font-normal text-[44px] sm:text-[72px] lg:text-[96px] leading-[1.05] tracking-tight uppercase mb-8"
-          >
-            Crafting Timeless<br />Spaces
-          </motion.h1>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.0, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="font-visueltpro text-[14px] sm:text-[18px] max-w-xl mx-auto mb-14 leading-relaxed font-light text-white/90"
-          >
-            Premium Residential, Commercial & Turnkey Interior Solutions.
-          </motion.p>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.0, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-center gap-6"
-          >
-            <Link to="/contact">
-              <Button variant="violet" className="px-10 py-4">
-                Book Consultation
-              </Button>
-            </Link>
-            <button onClick={scrollToProjects}>
-              <Button variant="ghost" className="text-white border-white hover:text-warm-oak hover:border-warm-oak px-10 py-4">
-                View Projects
-              </Button>
-            </button>
-          </motion.div>
-        </div>
-
-        {/* Scroll hint indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 pointer-events-none opacity-60">
-          <span className="font-visueltpro text-[9px] uppercase tracking-widest text-white/80">
-            Scroll to begin
-          </span>
-          <div className="w-[1px] h-10 bg-gradient-to-b from-white to-transparent" />
-        </div>
-      </section>
+      <HeroSection />
 
       {/* 2. ABOUT SECTION (Editorial Introduction) */}
-      <section className="py-32 sm:py-40 max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-          {/* About Text block */}
-          <div className="lg:col-span-6 flex flex-col justify-center">
-            <Badge variant="subtle" className="mb-4 self-start">Establishment</Badge>
-            <h2 className="font-bradford font-normal text-[36px] sm:text-[48px] lg:text-[54px] text-text-primary uppercase tracking-tight mb-8">
-              Purity in Design,<br />Truth in Material
-            </h2>
-            <p className="font-visueltpro text-text-secondary text-[15px] sm:text-[16px] leading-[1.8] mb-8 font-light">
-              Havora Studio creates elegant interiors that combine functionality, timeless aesthetics and exceptional craftsmanship. Every project is carefully designed to reflect the client's lifestyle while maintaining architectural harmony.
-            </p>
-            <p className="font-visueltpro text-text-secondary text-[14px] sm:text-[15px] leading-[1.8] font-light">
-              We approach each space with a minimal, architectural eye, rejecting decorative noise. By letting the volume, proportions, and natural materials breathe, we establish residential and commercial sanctuaries of quiet, warm luxury.
-            </p>
-            <div className="mt-10 self-start">
-              <Link to="/about">
-                <Button variant="ghost">Learn Our Philosophy</Button>
-              </Link>
-            </div>
-          </div>
-
-          {/* About Showcase Image Block */}
-          <div className="lg:col-span-6">
-            <div className="w-full aspect-[4/3] rounded-cards overflow-hidden shadow-lg border border-border-subtle group">
-              <img 
-                src="/images/projects-sofa.png" 
-                alt="Havora Studio Living Room Sofa" 
-                className="w-full h-full object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-105"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutSection />
 
       {/* 3. STATS SECTION (Clean animated counters) */}
-      <section className="py-20 bg-white/50 border-t border-b border-border-subtle relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-            {[
-              { target: 250, suffix: '+', title: 'Projects Delivered' },
-              { target: 100, suffix: '%', title: 'Residential Projects' },
-              { target: 100, suffix: '%', title: 'Commercial Quality' },
-              { target: 100, suffix: '%', title: 'Turnkey Solutions' }
-            ].map((stat, idx) => (
-              <div key={idx} className="flex flex-col items-center">
-                <span className="font-bradford text-[40px] sm:text-[54px] font-light text-warm-oak mb-2">
-                  <Counter target={stat.target} suffix={stat.suffix} />
-                </span>
-                <span className="font-visueltpro text-[11px] sm:text-[12px] uppercase tracking-widest text-text-secondary">
-                  {stat.title}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatsSection />
 
       {/* 4. SERVICES SECTION (Disciplines Grid with elegant card hovers) */}
       <section className="py-32 sm:py-40 bg-white/20">
@@ -388,73 +236,10 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 7. WHY CHOOSE US (Commanding Editorial Grid) */}
-      <section className="py-32 sm:py-40 max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-24">
-          <Badge variant="subtle" className="mb-4">Why Havora</Badge>
-          <h2 className="font-bradford font-normal text-[36px] sm:text-[48px] text-text-primary uppercase tracking-tight">
-            Our Architectural Rigor
-          </h2>
-          <p className="font-visueltpro text-text-secondary text-[15px] mt-4 font-light">
-            An unwavering commitment to execution, premium materials, and transparent schedules.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 font-visueltpro">
-          {[
-            {
-              title: 'Premium Materials',
-              desc: 'We curate and source only genuine, high-grade natural timber, slabs of travertine marble, and luxury fabrics with natural patinas.'
-            },
-            {
-              title: 'Attention to Detail',
-              desc: 'Every junction is engineered. We specify shadow gaps, handle alignments, and flush frame margins down to the millimeter.'
-            },
-            {
-              title: 'Experienced Team',
-              desc: 'With over 250+ projects successfully delivered, our directors lead a vetted cohort of architectural draftspersons and joiners.'
-            },
-            {
-              title: 'Tailored Designs',
-              desc: 'We do not build templates. Each layout, custom furniture piece, and color board is developed specifically for your lifestyle.'
-            },
-            {
-              title: 'Transparent Process',
-              desc: 'We map detailed cost sheets, phase schedules, and material specs, ensuring you remain in control of the project details.'
-            },
-            {
-              title: 'On-Time Delivery',
-              desc: 'Our robust project management timeline structures construction updates and staging schedules to deliver on the target week.'
-            }
-          ].map((item, idx) => (
-            <div key={idx} className="border-t border-border-subtle pt-6">
-              <h3 className="font-bradford font-normal text-[20px] text-text-primary uppercase mb-3">
-                {item.title}
-              </h3>
-              <p className="text-[13px] text-text-secondary leading-relaxed font-light">
-                {item.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <WhyChooseUsSection />
 
       {/* 8. CTA SECTION (Clean Layout Banner) */}
-      <section className="py-40 bg-white/40 border-t border-b border-border-subtle relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <Badge variant="subtle" className="mb-6">Engage</Badge>
-          <h2 className="font-bradford font-normal text-[36px] sm:text-[64px] leading-[1.1] text-text-primary tracking-tighter uppercase mb-8">
-            Let's design your<br />dream space.
-          </h2>
-          <p className="font-visueltpro text-text-secondary text-[16px] max-w-xl mx-auto mb-14 leading-relaxed font-light">
-            We partner with visionary clients to cultivate spaces of absolute stillness. Book an initial consultation with our lead designers.
-          </p>
-          <Link to="/contact">
-            <Button variant="violet">
-              Book a Consultation
-            </Button>
-          </Link>
-        </div>
-      </section>
+      <CtaSection />
 
     </div>
   );

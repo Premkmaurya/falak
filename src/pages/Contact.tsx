@@ -48,7 +48,7 @@ export const Contact: React.FC = () => {
     };
 
     emailjs.send(serviceId, templateId, templateParams, publicKey)
-      .then((response) => {
+      .then(() => {
         setLoading(false);
         setSubmitted(true);
       })
