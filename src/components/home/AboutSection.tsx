@@ -2,26 +2,29 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Badge } from "../Badge";
 
-
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 import AnimatedText from "../AnimatedText";
 
-
-const splitText = 
-  `Havora Studio creates elegant interiors that combine functionality,
+const splitText = `Havora Studio creates elegant interiors that combine functionality,
   timeless aesthetics and exceptional craftsmanship. Every project is
   carefully designed to reflect the client's lifestyle while
   maintaining architectural harmony.We approach each space with a minimal, architectural eye, rejecting
   decorative noise. By letting the volume, proportions, and natural
   materials breathe, we establish residential and commercial
   sanctuaries of quiet, warm luxury.
-  `
+  `;
 
 const AboutSection = () => {
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(SplitText);
 
   useEffect(() => {
+    const split = new SplitText("#about-section-heading", {
+      type: "lines,words",
+      linesClass: "line",
+    });
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#about-section-img",
@@ -30,6 +33,13 @@ const AboutSection = () => {
         scrub: 1,
         toggleActions: "play none none reverse",
       },
+    });
+    tl.from(split.lines, {
+      duration: 0.1,
+      yPercent: 80,
+      opacity: 0,
+      stagger: 0.1,
+      ease: "expo.out",
     });
     tl.fromTo(
       "#about-section-img",
@@ -43,6 +53,7 @@ const AboutSection = () => {
         scale: 1.2,
         ease: "power2.out",
       },
+      "<",
     );
   }, []);
 
@@ -54,7 +65,10 @@ const AboutSection = () => {
           <Badge variant="subtle" className="mb-4 self-start">
             Establishment
           </Badge>
-          <h2 className="font-bradford font-normal text-[36px] sm:text-[48px] lg:text-[54px] text-text-primary uppercase tracking-tight mb-8">
+          <h2
+            id="about-section-heading"
+            className="font-bradford font-normal text-[36px] sm:text-[48px] lg:text-[54px] text-text-primary uppercase tracking-tight mb-8"
+          >
             Purity in Design,
             <br />
             Truth in Material
@@ -67,7 +81,10 @@ const AboutSection = () => {
             />
           </p>
           <div className="mt-10 self-start">
-            <Link to="/about" className="philosophy-link group inline-flex items-center">
+            <Link
+              to="/about"
+              className="philosophy-link group inline-flex items-center"
+            >
               <span className="philosophy-label">Learn Our Philosophy</span>
               <svg
                 className="philosophy-arrow"
@@ -88,15 +105,15 @@ const AboutSection = () => {
 
         {/* About Showcase Image Block */}
         <div className="lg:col-span-6">
-          <div className="w-full aspect-[4/3] relative rounded-cards overflow-hidden shadow-lg border border-border-subtle group">
+          <div className="w-full aspect-[4/3] relative rounded-cards overflow-hidden group">
             <div
               id="about-section-img"
-              className="w-full h-full absolute z-10 bg-white"
+              className="w-full h-full absolute z-10 bg-[#F8F6F2] border-none"
             />
             <img
               src="/images/projects-sofa.png"
               alt="Havora Studio Living Room Sofa"
-              className="w-full h-full object-cover transition-transform duration-[1500ms] z-1 ease-out group-hover:scale-105"
+              className="w-full h-full object-cover shadow-lg transition-transform duration-[1500ms] z-1 ease-out group-hover:scale-105"
             />
           </div>
         </div>

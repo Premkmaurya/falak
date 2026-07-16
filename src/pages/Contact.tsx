@@ -86,8 +86,8 @@ export const Contact: React.FC = () => {
                     Studio Desk
                   </h3>
                   <p className="mb-2">By Appointment Only</p>
-                  <a href="mailto:hello@havorastudio.in" className="hover:text-warm-oak transition-colors duration-300 block font-medium">
-                    hello@havorastudio.in
+                  <a href="mailto:havorastudio.in@gmail.com" className="hover:text-warm-oak transition-colors duration-300 block font-medium">
+                    havorastudio.in@gmail.com
                   </a>
                   <a href="https://havorastudio.in" target="_blank" rel="noopener noreferrer" className="hover:text-warm-oak transition-colors duration-300 block">
                     havorastudio.in
