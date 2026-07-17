@@ -22,7 +22,7 @@ const MaterialSection = () => {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#material-section-img",
+        trigger: "#material-section-container",
         start: "top 50%",
         end: "bottom 70%",
         scrub: 1,
@@ -66,7 +66,7 @@ const MaterialSection = () => {
   return (
     <section className="bg-white/40 border-t border-b border-border-subtle">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <div id="material-section-container" className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
           {/* Image (Materials - Wood Panel) */}
           <div className="lg:col-span-6 order-2 lg:order-1">
             <div className="w-full aspect-[16/10] relative rounded-cards overflow-hidden shadow-lg">

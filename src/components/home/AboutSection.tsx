@@ -27,7 +27,7 @@ const AboutSection = () => {
     });
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#about-section-img",
+        trigger: "#about-section",
         start: "top 50%",
         end: "bottom 20%",
         scrub: 1,
@@ -41,6 +41,7 @@ const AboutSection = () => {
       stagger: 0.1,
       ease: "expo.out",
     });
+
     tl.fromTo(
       "#about-section-img",
       {
@@ -53,13 +54,15 @@ const AboutSection = () => {
         scale: 1.2,
         ease: "power2.out",
       },
-      "<",
     );
   }, []);
 
   return (
     <section className="py-32 sm:py-40 max-w-7xl mx-auto px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+      <div
+        id="about-section"
+        className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center"
+      >
         {/* About Text block */}
         <div className="lg:col-span-6 flex flex-col justify-center">
           <Badge variant="subtle" className="mb-4 self-start">
@@ -105,7 +108,10 @@ const AboutSection = () => {
 
         {/* About Showcase Image Block */}
         <div className="lg:col-span-6">
-          <div className="w-full aspect-[4/3] relative rounded-cards overflow-hidden group">
+          <div
+            id="about-section-img-block"
+            className="w-full aspect-[4/3] relative rounded-cards overflow-hidden group"
+          >
             <div
               id="about-section-img"
               className="w-full h-full absolute z-10 bg-[#F8F6F2] border-none"
