@@ -1,23 +1,90 @@
 import { Badge } from "lucide-react";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+
 
 const WhyChooseUsSection = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(SplitText);
+
+  const cardsRef = React.useRef<HTMLDivElement>(null);
+
+  
+  useEffect(() => {
+    const split = new SplitText("#why-section-heading", {
+      type: "lines,words",
+      linesClass: "line",
+    });
+    const split_2 = new SplitText("#why-section-description", {
+      type: "lines,words",
+      linesClass: "line",
+    });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#why-section-header",
+        start: "top 50%",
+        end: "bottom 70%",
+        scrub: 1,
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    tl.from(split.lines, {
+      duration: 0.1,
+      yPercent: 80,
+      opacity: 0,
+      stagger: 0.08,
+      ease: "expo.out",
+    })
+      .from(split_2.lines, {
+        duration: 0.1,
+        yPercent: 80,
+        opacity: 0,
+        stagger: 0.08,
+        ease: "expo.out",
+      })
+      .fromTo(
+        "#card",
+        { y: 50, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: cardsRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: 1,
+            toggleActions: "play none none reverse",
+          },
+          duration: 0.8,
+          y: 0,
+          opacity: 1,
+          stagger: 0.1,
+          ease: "power2.out",
+        },
+        "<"
+      );
+  }, []);
+
   return (
     <section className="py-32 sm:py-40 max-w-7xl mx-auto px-6">
-      <div className="text-center max-w-2xl mx-auto mb-24">
+      <div id="why-section-header" className="text-center max-w-2xl mx-auto mb-24">
         <Badge variant="subtle" className="mb-4">
           Why Havora
         </Badge>
-        <h2 className="font-bradford font-normal text-[36px] sm:text-[48px] text-text-primary uppercase tracking-tight">
+        <h2 id="why-section-heading" className="font-bradford font-normal text-[36px] sm:text-[48px] text-text-primary uppercase tracking-tight">
           Our Architectural Rigor
         </h2>
-        <p className="font-visueltpro text-text-secondary text-[15px] mt-4 font-light">
+        <p id="why-section-description" className="font-visueltpro text-text-secondary text-[15px] mt-4 font-light">
           An unwavering commitment to execution, premium materials, and
           transparent schedules.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 font-visueltpro">
+      <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-12 font-visueltpro">
         {[
           {
             title: "Premium Materials",
@@ -44,7 +111,7 @@ const WhyChooseUsSection = () => {
             desc: "Our robust project management timeline structures construction updates and staging schedules to deliver on the target week.",
           },
         ].map((item, idx) => (
-          <div key={idx} className="border-t border-border-subtle pt-6">
+          <div id="card" key={idx} className="border-t border-border-subtle pt-6">
             <h3 className="font-bradford font-normal text-[20px] text-text-primary uppercase mb-3">
               {item.title}
             </h3>

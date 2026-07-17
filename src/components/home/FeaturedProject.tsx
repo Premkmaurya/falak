@@ -38,7 +38,7 @@ const FeaturedProject = () => {
       "#about-section-img-2",
       {
         translateX: 0,
-        scale: 1,
+        scale: 1.3,
       },
       {
         scrollTrigger: {
@@ -58,7 +58,7 @@ const FeaturedProject = () => {
       "#about-section-img-1",
       {
         translateX: 0,
-        scale: 1,
+        scale: 1.3,
       },
       {
         scrollTrigger: {
@@ -70,7 +70,7 @@ const FeaturedProject = () => {
         },
         duration: 0.8,
         translateX: "100rem",
-        scale: 1.2,
+        scale: 1,
         ease: "power2.out",
       },
     );
